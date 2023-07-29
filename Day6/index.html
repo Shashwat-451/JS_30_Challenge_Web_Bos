@@ -1,4 +1,4 @@
-=<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -60,3 +60,94 @@ searchInput.addEventListener('keyup', displayMatches);
 </script>
   </body>
 </html>
+
+
+<!-- 
+
+  function findMatches(wordToMatch, cities) {
+
+This line declares the findMatches function with two parameters: wordToMatch and cities.
+wordToMatch is a string representing the user input (the city or state the user is searching for).
+cities is an array of city data objects that will be filtered based on the user input.
+return cities.filter(place => {
+
+This line starts a filter() method call on the cities array, which returns a new array with elements that satisfy the condition specified by the provided function.
+The provided function is an arrow function with the parameter place. It represents each city data object in the cities array and is used to check if the city or state matches the wordToMatch.
+const regex = new RegExp(wordToMatch, 'gi');
+
+This line creates a new regular expression (regex) object called regex.
+The regular expression is constructed using the RegExp constructor, which takes two arguments: wordToMatch (the user input) and the string 'gi'.
+The 'gi' flags indicate that the regular expression should be case-insensitive ('i') and global ('g'), meaning it will match all occurrences, not just the first one.
+return place.city.match(regex) || place.state.match(regex)
+
+This line returns the result of the filter condition for each place (city data object) in the cities array.
+place.city.match(regex) checks if the city property of the place object matches the regex (user input).
+place.state.match(regex) checks if the state property of the place object matches the regex.
+The || operator between the two checks means that if either the city or the state matches the user input, the city data object will be included in the filtered array.
+});
+
+This closing curly brace ends the arrow function that is passed to the filter() method, effectively completing the filtering process.
+}
+
+This closing curly brace ends the findMatches function.
+
+
+
+
+
+
+
+
+
+
+1. `function displayMatches() {`
+   - This line declares the `displayMatches` function, which is responsible for updating the list of matching cities or states based on the user input.
+
+2. `const matchArray = findMatches(this.value, cities);`
+   - This line calls the `findMatches` function, passing two arguments: `this.value` and `cities`.
+   - `this.value` refers to the current value of the search input (the user's input), and `cities` is the array of city data objects.
+   - The `findMatches` function returns an array `matchArray` containing the city data objects that match the user's input.
+
+3. `const html = matchArray.map(place => {`
+   - This line starts a `map()` method call on the `matchArray` array, which creates a new array by applying a function to each element of the original array.
+   - The provided function is an arrow function with the parameter `place`. It represents each city data object in the `matchArray`.
+
+4. `const regex = new RegExp(this.value, 'gi');`
+   - This line creates a new regular expression (regex) object called `regex`, just like we saw in the previous explanation.
+   - The `regex` object will be used to perform a case-insensitive global search on the city and state names to highlight the matching parts.
+
+5. `const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);`
+   - This line uses the `replace()` method on the `place.city` string (the city name) to replace the matching part of the string with a new HTML code.
+   - The `regex` is used as the search pattern, and the matching part is replaced with a highlighted version, enclosed in a `<span>` element with class "hl".
+   - This creates the effect of highlighting the matched characters in the city name.
+
+6. `const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);`
+   - This line is similar to the previous one, but it operates on the `place.state` string (the state name) instead.
+
+7. `` `...` ``
+   - This is a template literal, allowing multi-line strings and dynamic values to be embedded using `${}` notation.
+
+8. `<li>`
+   - This line starts an HTML list item (`<li>`) element.
+
+9. `<span class="name">${cityName}, ${stateName}</span>`
+   - This line includes a `<span>` element with class "name" containing the highlighted city name (`cityName`) followed by a comma and the highlighted state name (`stateName`).
+
+10. `<span class="population">${numberWithCommas(place.population)}</span>`
+    - This line includes a `<span>` element with class "population" containing the formatted population number of the city/state from the `place` object.
+    - It calls the `numberWithCommas` function to format the population number with commas for better readability.
+
+11. `</li>`
+    - This line closes the HTML list item (`<li>`) element.
+
+12. `});`
+    - This closing curly brace ends the arrow function that is passed to the `map()` method.
+
+13. `.join('');`
+    - This line joins all the elements of the array returned by the `map()` method into a single string.
+    - The `join('')` method joins the array elements with an empty string, effectively concatenating them into one continuous string.
+
+14. `suggestions.innerHTML = html;`
+    - This line sets the `innerHTML` property of the `suggestions` element to the `html` string generated in the previous steps.
+    - As a result, the list of matching cities/states is displayed in the HTML, and the user can see the highlighted matches and corresponding population numbers. -->
+
