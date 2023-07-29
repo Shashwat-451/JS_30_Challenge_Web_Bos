@@ -126,10 +126,12 @@
   </div>
 
   <script>
-    const panels = document.querySelectorAll('.panel');
-
+    const panels = document.querySelectorAll('.panel');// return a Node List
+    // This is a function named toggleOpen. It is defined to toggle the class open on the clicked panel. 
+    // The this keyword inside this function refers to the panel that was clicked. The classList.toggle() method is used to add the open 
+    // class if it's not present or remove it if it's already present. The open class is responsible for expanding the panel when it is clicked.
+    
     function toggleOpen() {
-      console.log('Hello');
       this.classList.toggle('open');
     }
 
